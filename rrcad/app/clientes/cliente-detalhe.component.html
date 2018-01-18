@@ -1,0 +1,55 @@
+<div class="container"> 
+<h2>Salvar Cliente</h2>
+<form (ngSubmit) = "onSubmit()" #clienteForm="ngForm" novalidate>
+
+    <div [ngClass]="getFormGroupClass(codigo.valid,codigo.pristine)">
+        <label for="codigo" class="form-control-label">Código</label>
+        <input type="text" placeholder="Informe o código"  
+         [ngClass]="getFormControlClass(codigo.valid, codigo.pristine)"
+         required
+         #codigo="ngModel"
+         name="codigo"
+         [(ngModel)]="cliente.codigo" >
+         <div class="form-control-feedback" [hidden]="codigo.valid || codigo.pristine">O campo código deve ser informado</div>
+    </div>
+
+    <div [ngClass]="getFormGroupClass(nome.valid,nome.pristine)">
+        <label for="nome" class="form-control-label">Nome</label>
+        <input type="text" placeholder="Informe o nome"  
+         [ngClass]="getFormControlClass(nome.valid, nome.pristine)"
+         required
+         #nome="ngModel"
+         name="nome"
+         [(ngModel)]="cliente.nome" >
+         <div class="form-control-feedback" [hidden]="nome.valid || nome.pristine">O campo nome deve ser informado</div>
+    </div>
+
+    
+    <div [ngClass]="getFormGroupClass(dtinclusao.valid, dtinclusao.pristine)">
+        <label for="dtinclusao">Data de inclusão</label>
+        <input type="text" class="form-control" placeholder="Informe a data de inclusão"    
+         [ngClass]="getFormControlClass(dtinclusao.valid, dtinclusao.pristine)"     
+         required
+         #dtinclusao="ngModel"
+         name="dtinclusao"
+         [(ngModel)]="cliente.dtinclusao" >
+         <div class="form-control-feedback" [hidden]="dtinclusao.valid || dtinclusao.pristine">O campo data de inclusão deve ser informado</div>
+    </div>
+
+    
+    <div [ngClass]="getFormGroupClass(dtalteracao.valid, dtalteracao.pristine)">
+        <label for="dtalteracao">Data de alteração</label>
+        <input type="text" class="form-control" placeholder="Informe a data da alteração"    
+         [ngClass]="getFormControlClass(dtalteracao.valid, dtalteracao.pristine)"     
+         required
+         #dtalteracao="ngModel"
+         name="dtalteracao"
+         [(ngModel)]="cliente.dtalteracao" >
+         <div class="form-control-feedback" [hidden]="dtalteracao.valid || dtalteracao.pristine">O campo dtalteracao deve ser informado</div>
+    </div>
+    
+    <button type="submit" class="btn btn-success" [disabled]="!clienteForm.form.valid">Salvar</button>
+     <a class="btn btn-secondary" routerLink="/">Voltar </a>
+</form>
+
+</div>
